@@ -52,16 +52,18 @@ def game_by_id(id):
 
     return response
 
-@app.route('/reviews')
-def reviews():
+@app.route('/reviews/<int ;id>', methods=['GET','DELET'])
+def reviews_by_id(id):
 
-    reviews = []
-    for review in Review.query.all():
+    
+    review in Review.query.all()
+        
+    if  request.method == 'GET':
         review_dict = review.to_dict()
-        reviews.append(review_dict)
+
 
     response = make_response(
-        reviews,
+        review_dict,
         200
     )
 
